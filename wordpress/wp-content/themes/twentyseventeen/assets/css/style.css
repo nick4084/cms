@@ -1,0 +1,52 @@
+.float-button {
+  border: none;
+  outline: none;
+}
+
+
+.wrapper {
+  position: absolute;
+  top: 93%;
+  left: 94%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+}
+
+.circle {
+  display: block;
+  position: relative;
+  padding: 0;
+  z-index: 98;
+  margin: 0 auto;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  background-color: #00ff00;
+  transition: 0.2s;
+  text-align: center;
+}
+.circle:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.3);
+}
+.circle:hover {
+  cursor: pointer;
+  background-color: #606fc7;
+  box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.3);
+}
+.circle img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  transition: 0.5s;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
