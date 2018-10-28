@@ -16,3 +16,8 @@ footer template: footer-dashboard.php //define js link
 side menu: side-menu.php
 
 css and js files will be in twentyseventeen\assets
+
+
+CSS
+look for icon here:
+https://fontawesome.com/icons?d=gallery
