@@ -1,0 +1,45 @@
+#psitable {
+	position:absolute;
+	left:12%;
+	top:23%;
+	border-collapse: collapse;
+	background-color: white;
+}
+
+#psitable td, #psitable th {
+    border: 1px solid #ddd;
+    padding: 2px;
+}
+
+#psitable tr:nth-child(even){background-color: #f2f2f2;}
+
+#psitable th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#nationalpsitable {
+	position:absolute;
+	right:2%;
+	top:23%;
+	border-collapse: collapse;
+	background-color: white;
+}
+
+#nationalpsitable td, #nationalpsitable th {
+    border: 1px solid #ddd;
+    padding: 2px;
+}
+
+#nationalpsitable tr:nth-child(even){background-color: #f2f2f2;}
+
+#nationalpsitable th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

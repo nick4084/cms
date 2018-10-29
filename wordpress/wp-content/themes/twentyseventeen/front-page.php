@@ -23,7 +23,7 @@ get_header(); ?>
 		<form id = "login_form" style="display: inline-block;">
 			<input placeholder="Username" style="width:300px;" type="text" id="login_username" name = "login_username" />
 			</br><input placeholder="Password" style="width:300px;" type="password" id="login_password" name = "login_password" />
-			</br><a href="dashboard"><input value="Login" style="width:300px" type="button"/></a>
+			</br><a href="dashboard-psi"><input value="Login" style="width:300px" type="button"/></a>
 			</form>
 		</div>
 	</div>
