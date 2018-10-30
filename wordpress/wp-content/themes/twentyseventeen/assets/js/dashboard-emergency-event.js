@@ -1,4 +1,25 @@
 $(document).ready(function(){
+	//DataTable
+	$.ajax({
+		type: "POST",
+		url: "http://localhost/cms/wordpress/wp-content/themes/twentyseventeen/event-manager.php",
+		dataType: "json",
+        //async:false,
+        data: {
+            'function': "getEvents"
+        },
+		success: function(data){
+			if(data.success == true){
+				$('#eventTable').DataTable({
+					data:data.dataset
+				});
+				$('#eventTable tbody').on( 'click', 'tr', function () {
+					window.location.href = "http://localhost/cms/wordpress/dashboard-emergency-event-detail/";
+			    });
+			}
+				
+			}
+	});
 $("#NewEventForm").on("submit",function(e){
 	e.preventDefault();
 	if($("#NewEventForm [name='new-event-title']").val() === '')
@@ -29,10 +50,14 @@ $.ajax({
 	url: "http://localhost/cms/wordpress/wp-content/themes/twentyseventeen/event-manager.php",
 	data: sendData,
 	success: function(data){
+		//if(data=="Connected successfully"){
+			$('#addEventModal').modal('hide');
+		//} else {
+			
+		//}
 		//$("#loading-img").css("display","none");
 		//$(".response_msg").text(data);
 		//$(".response_msg").slideDown().fadeOut(3000);
-		$("#NewEventForm [name='new-event-details']").val(data);
 	}
  
 });

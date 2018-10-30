@@ -1,13 +1,31 @@
 <?php /* Template Name: Dashboard-emergency-event */ ?>
 <?php include 'header-dashboard.php';?>
 <?php include 'side-menu.php';?>
-<div class="page-content">
 
+<div class="page-content"><!-- content section -->
+<h2>Emergency Events</h2>
+<table id="eventTable" class="display">
+    <thead>
+            <tr>
+            	<th>#</th>
+                <th>Title</th>
+                <th>Date started</th>
+                <th>Details</th>
+                <th>Updates</th>
+                <th>Tasks</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
 </div>
 
 <div class="wrapper">
-<button type="button" class="circle float-button" data-toggle="modal" data-target="#addEventModal" style = "background-color: #00ff00;"><div class="fas fa-plus"><span class="name"></span></div></button>
-
+	<button type="button" class="circle float-button" data-toggle="modal" data-target="#addEventModal" style = "background-color: #00ff00;"><div class="fas fa-plus"><span class="name"></span></div></button>
 </div>
 
 <!-- Modal -->
