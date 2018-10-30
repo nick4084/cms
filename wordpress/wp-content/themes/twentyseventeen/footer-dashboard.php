@@ -28,6 +28,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/google-map.js"></script>
 <script src="/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/dashboard-emergency-event.js"></script>
+<script src="/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/dashboard-update-event.js"></script>
 <script src="/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/api.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-zuqQ7eq8N1ero-yXHg587rX8m6FMHiU&callback=myMap"></script>
 </body>
