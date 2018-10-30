@@ -1,7 +1,28 @@
+
 <?php /* Template Name: Dashboard - PSI */ ?>
 <?php include 'header-dashboard.php';?>
 <?php include 'side-menu.php';?>
-
+<?php
+	//add this in every page that needs login
+	session_start();
+	$username = $_SESSION['MM_Username'];
+    $url = $_SESSION['defaulturl'];
+	if( !isset($username))
+	{
+		header("Location:$url"); // variable not created ==> not login yet
+	}
+	else
+	{?>
+		<script language="javascript">
+			document.getElementById("emergency-event").style.display = "block";
+			document.getElementById("psi").style.display = "block";
+			document.getElementById("dengue").style.display = "block";
+			document.getElementById("genPsi").style.display = "none";
+			document.getElementById("genDengue").style.display = "none";
+		</script>
+	<?php	
+	}
+?>
 <div class="page-content" id="googleMap" style="width:90%; height:520px"></div>
 
 <table id="psitable">

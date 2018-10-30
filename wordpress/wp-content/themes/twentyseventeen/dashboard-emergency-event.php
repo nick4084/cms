@@ -1,6 +1,28 @@
+
 <?php /* Template Name: Dashboard-emergency-event */ ?>
 <?php include 'header-dashboard.php';?>
 <?php include 'side-menu.php';?>
+<?php
+	//add this in every page that needs login
+	session_start();
+	$username = $_SESSION['MM_Username'];
+    $url = get_site_url(). "/";
+	if( !isset($username))
+	{
+		header("Location:$url"); // variable not created ==> not login yet
+	}
+	else
+	{?>
+		<script language="javascript">
+			document.getElementById("emergency-event").style.display = "block";
+			document.getElementById("psi").style.display = "block";
+			document.getElementById("dengue").style.display = "block";
+			document.getElementById("genPsi").style.display = "none";
+			document.getElementById("genDengue").style.display = "none";
+		</script>
+	<?php	
+	}
+?>
 <div class="page-content">
 
 </div>
