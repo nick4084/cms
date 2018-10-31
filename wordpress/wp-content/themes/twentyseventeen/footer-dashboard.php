@@ -25,9 +25,16 @@
 </div><!-- #page -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<<<<<<< HEAD
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/google-map.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+=======
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/google-map.js"></script>
+<script src="/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/dashboard-emergency-event.js"></script>
+<script src="/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/dashboard-update-event.js"></script>
+>>>>>>> branch 'master' of https://github.com/nick4084/cms.git
 <script src="/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/api.js"></script>
 <!-- selectively load script -->
 <?php echo (strpos($_SERVER['REQUEST_URI'], "/cms/wordpress/dashboard-emergency-event/") === 0) ? "<script type=\"text/javascript\" src=\"/cms/wordpress/wp-content/themes/twentyseventeen/assets/js/dashboard-emergency-event.js\"></script>": ""; ?>

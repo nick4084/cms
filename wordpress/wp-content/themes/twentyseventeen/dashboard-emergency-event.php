@@ -13,6 +13,11 @@
 	else
 	{?>
 		<script language="javascript">
+<<<<<<< HEAD
+=======
+			document.getElementById("emergency-event").style.display = "block";
+			document.getElementById("update-event").style.display = "block";
+>>>>>>> branch 'master' of https://github.com/nick4084/cms.git
 			document.getElementById("psi").style.display = "block";
 			document.getElementById("dengue").style.display = "block";
 			document.getElementById("genPsi").style.display = "none";
