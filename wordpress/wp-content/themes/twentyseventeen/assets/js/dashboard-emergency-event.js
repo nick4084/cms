@@ -11,10 +11,11 @@ $(document).ready(function(){
 		success: function(data){
 			if(data.success == true){
 				$('#eventTable').DataTable({
-					data:data.dataset
-				});
+		             data: data.dataset 
+		             });
 				$('#eventTable tbody').on( 'click', 'tr', function () {
-					window.location.href = "http://localhost/cms/wordpress/dashboard-emergency-event-detail/";
+					var id = $('#eventTable').DataTable().row(this).data()[0];
+					window.location.href = "http://localhost/cms/wordpress/dashboard-emergency-event-detail/?id="+id;
 			    });
 			}
 				
@@ -52,6 +53,7 @@ $.ajax({
 	success: function(data){
 		//if(data=="Connected successfully"){
 			$('#addEventModal').modal('hide');
+			loadtable();
 		//} else {
 			
 		//}
@@ -71,3 +73,28 @@ $(this).css("border","1px solid #eeeeee");
 }
 });
 });
+
+function loadtable(){
+	$.ajax({
+		type: "POST",
+		url: "http://localhost/cms/wordpress/wp-content/themes/twentyseventeen/event-manager.php",
+		dataType: "json",
+        //async:false,
+        data: {
+            'function': "getEvents"
+        },
+		success: function(data){
+			if(data.success == true){
+				$('#eventTable').DataTable({
+					data:data.dataset,
+					rowId: '#'
+				});
+				$('#eventTable tbody').on( 'click', 'tr', function () {
+					var id = $('#eventTable').DataTable().row(this).data()[0];
+					window.location.href = "http://localhost/cms/wordpress/dashboard-emergency-event-detail/?id="+id;
+			    });
+			}
+				
+			}
+	});
+}

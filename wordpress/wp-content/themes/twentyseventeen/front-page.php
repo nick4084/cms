@@ -17,8 +17,10 @@
         if($userfound >= 1)
         {
             // User record is found in the cms_user
+            $row = $search_result->fetch_assoc();
             session_start();
             $_SESSION['MM_Username'] = $u;
+            $_SESSION['role'] = $row["account_type"];
 			$url = get_site_url();
 			$_SESSION['defaulturl'] = $url;
             header("Location:dashboard-psi");
