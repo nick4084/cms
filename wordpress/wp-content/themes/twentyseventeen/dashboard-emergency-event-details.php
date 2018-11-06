@@ -2,6 +2,7 @@
 <?php include 'header-dashboard.php';?>
 <?php include 'side-menu.php';?>
 <?php include 'class_event.php';?>
+<?php include 'class_update.php' ?>
 <?php //add this in every page that needs login
 	session_start();
 	$username = $_SESSION['MM_Username'];
@@ -25,6 +26,13 @@
 <?php
         $current_event = new Event();
         $current_event->loadEventById($_GET['id'])?>
+		
+<?php
+     $current_update = new Update();
+	 $updatearray = array();
+	 $updatearray = $current_update->loadUpdateById($_GET['id']);
+   
+?>
     <!-- top component -->
     <h2>Emergency event details</h2><br>
     <div class="panel panel-default">
@@ -98,7 +106,97 @@
 			<span><h3 class="panel-title">Event Updates</h3></span>
 		</div>
 		<div class="panel-body">
-		content</div>
+		<table class = "table table-condensed">
+        	<thead>
+        	<tr>
+        		<th class ="col-md-1">Update#</th>
+        		<th>Date and Time updated</th>
+        		<th>Comments</th>
+        		<th>Updated by </th>
+        		</thead>
+        		<tbody>
+        		
+        		<?php 
+        		
+        		foreach ($updatearray as $row1){
+        		    echo "<tr>";
+        		    echo "<form action = 'http://localhost/cms/wordpress/wp-content/themes/twentyseventeen/update-manager.php' method ='post'>";
+        		    echo "<input name = 'delete-update-id' type ='hidden' value = '".$row1[0]."'>";
+       
+        		    foreach ($row1 as $row2){
+        		        
+        		        echo "<td>";
+        		        echo $row2;
+        		        
+        		        echo "</td>";
+        		       
+        		  
+        		        
+        		    }
+        	
+        		    echo "<td><button type='delete' style = 'background-color: #DC143C;'><div class='fas fa-trash-alt'><span class='name'></span></div></button></td>";
+        		    echo "</form>";
+        		}
+        	
+        		
+        		
+         
+        		
+        		?>
+        		</tbody>
+        	<td><button type="button" class = "btn btn-success" data-toggle="modal" data-target="#addUpdateModal";"><span class="name">Add new update</span></button></td>
+        	
+        	</tr>
+        </table></div>
+        <div class="form-group row">
+				<div class="wrapper">
+	
+</div>
+
+<!-- Modal -->
+  <div class="modal fade" id="addUpdateModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Adding new updates for event #<?php echo $_GET['id'];?></h2>
+        </div>
+        <div class="modal-body">
+          <form id="NewUpdateForm" action="#" method="post">
+          <input type='hidden' name = "new-update-id" id= "newUpdateID" value = '<?php echo $_GET['id']?>'/>
+			<div class="form-group row">
+				<label for="new-update-date" class="col-sm-2 col-form-label">Date</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="newUpdateDate"
+						name="new-update-date" type="datetime-local">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="new-update-comment" class="col-sm-2 col-form-label">Comments</label>
+				<div class="col-sm-10">
+					<textarea id="newUpdateComments" name="new-update-comments" rows ="8" cols= "60"></textarea>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="new-event-status" class="col-sm-2 col-form-label">Updated by:</label>
+				<div class="col-sm-10">
+					<?php echo $username;?>
+					<input type ='hidden' name = "new-update-user" id = "newUpdateUser" value = "<?php echo $username; ?>"/>
+				</div>
+			</div>
+			<div class="modal-footer">
+          		<button type="button" class="btn btn-error" data-dismiss="modal">Cancel</button>
+          		<input id="submitupdate" type="submit" class="btn btn-success">
+        	</div>
+        </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+			</div>
 	</div>
 	
 	<!-- task holder -->

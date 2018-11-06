@@ -13,7 +13,6 @@
 	else
 	{?>
 		<script language="javascript">
-			document.getElementById("update-event").style.display = "block";
 			document.getElementById("emergency-event").style.display = "block";
 			document.getElementById("psi").style.display = "block";
 			document.getElementById("dengue").style.display = "block";
