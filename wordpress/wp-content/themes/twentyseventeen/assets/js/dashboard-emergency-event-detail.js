@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$("#editEventForm").on("submit",function(e){
+$("#editEventForm").on("submitupdate",function(e){
 	e.preventDefault();
 	if($("#editEventForm [name='edit-event-title']").val() === '')
 	{
