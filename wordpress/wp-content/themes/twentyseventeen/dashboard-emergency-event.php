@@ -17,8 +17,6 @@
 			document.getElementById("emergency-event").style.display = "block";
 			document.getElementById("psi").style.display = "block";
 			document.getElementById("dengue").style.display = "block";
-			document.getElementById("genPsi").style.display = "none";
-			document.getElementById("genDengue").style.display = "none";
 		</script>
 	<?php	
 	}
