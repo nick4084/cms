@@ -1,28 +1,23 @@
 var markerList = new Array();
 var map, infowindow;
 
-window.onload = getPSIApi;
+if(window.location.href == "http://localhost/cms/wordpress/dashboard-psi/")
+	window.onload = getPSIApi;
 
 function getPSIApi() {
 	
+	var date = getTodayDate();
 	// Create a request variable and assign a new XMLHttpRequest object to it.
 	var request = new XMLHttpRequest();
 
 	// Open a new connection, using the GET request on the URL endpoint
-	request.open('GET', 'https://api.data.gov.sg/v1/environment/psi?date=2018-10-29', true);
-
-	console.log("API RU");
-	console.log("RUN");
+	request.open('GET', 'https://api.data.gov.sg/v1/environment/psi?date=' + date, true);
 	
 	request.onload = function () {
 		// Begin accessing JSON data here
 		var data = JSON.parse(this.response);
 		var i = 0;
-		console.log("FUNCTION IN");
-		console.log("DATA EMPTY" + !data);
-		console.log(data);
-		console.log(data.region_metadata[0].label_location.longitude);
-		console.log(data.items[0].readings.pm10_twenty_four_hourly);
+
 		var centerOfSG = {lat: 1.35735, lng: 103.82};
 		map = new google.maps.Map(document.getElementById('googleMap'), {zoom: 11.5, center: centerOfSG});
 		
@@ -44,17 +39,10 @@ function getPSIApi() {
 			
 			if(i == 0)
 			{
-				//National
-				console.log("NationalPSI START");
-
 				var nationalPSI = psiReading.national;
 				var nationalPSI25 = pm25Reading.national;
 				var nationalPSI10 = pm10Reading.national;
 				
-				console.log(nationalPSI);
-				console.log(nationalPSI25);
-				console.log(nationalPSI10);
-				console.log("NationalPSI END");
 				document.getElementById("nationalPsiValue0").appendChild(document.createTextNode(nationalPSI));
 				document.getElementById("nationalPsiValue25").appendChild(document.createTextNode(nationalPSI25));
 				document.getElementById("nationalPsiValue10").appendChild(document.createTextNode(nationalPSI10));
@@ -129,6 +117,18 @@ function createMarker(name, latLng, psi, pm25, pm10)
 	markerList.push(marker);
 }
 
+function getTodayDate()
+{
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //As January is 0.
+	var yyyy = today.getFullYear();
+
+	if(dd<10) dd='0'+dd;
+	if(mm<10) mm='0'+mm;
+	
+	return (yyyy + "-" + mm + "-" + dd);
+}
 
 
 

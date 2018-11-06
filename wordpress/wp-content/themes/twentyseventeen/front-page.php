@@ -55,7 +55,7 @@ get_header(); ?>
 	<p style="text-align: center;"><strong style="font-size: 40px">CRISIS MANAGEMENT SYSTEM</strong></p>
 	<p style="text-align: center;">Login page</p>
 		<div id="login_holder" style="text-align:center;">
-		<form id = "login_form" style="display: inline-block;" action="#" method="post">
+		<form id = "login_form" style="display: inline-block;" action="" method="post">
 			<input placeholder="Username" style="width:300px;" type="text" id="login_username" name = "login_username" />
 			</br><input placeholder="Password" style="width:300px;" type="password" id="login_password" name = "login_password" />
 			<br/><input id="submit" value="Login" style="width:300px" name="submit" type="submit"/>
