@@ -24,7 +24,6 @@ function CreateUpdate(){
     $ID = $_POST['new-update-id'];
     $User = $_POST['new-update-user'];
 	
-	$Date = date('Y-m-d H:i:s', strtotime($Date));
 	
 	
     $conn = getConnecion();

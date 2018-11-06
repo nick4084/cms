@@ -6,7 +6,8 @@
 <?php include 'class_task.php';?>
 
 <?php //add this in every page that needs login
-	session_start();
+	
+    session_start();
 	$username = $_SESSION['MM_Username'];
     $url = get_site_url(). "/";
 	if( !isset($username))
@@ -32,6 +33,8 @@
      $current_update = new Update();
 	 $updatearray = array();
 	 $updatearray = $current_update->loadUpdateById($_GET['id']);
+	 date_default_timezone_set('Asia/Singapore');
+	 $date = date('Y-m-d H:i:s', time());
    
 ?>
 
@@ -154,7 +157,8 @@
         	
         		
         		
-         
+        		
+        		
         		
         		?>
         		</tbody>
@@ -183,8 +187,9 @@
 			<div class="form-group row">
 				<label for="new-update-date" class="col-sm-2 col-form-label">Date</label>
 				<div class="col-sm-10">
-					<input class="form-control" id="newUpdateDate"
-						name="new-update-date" type="datetime-local">
+					<?php echo $date;?>
+					<input  type='hidden' id="newUpdateDate"
+						name="new-update-date" value = '<?php echo $date;?>'/>
 				</div>
 			</div>
 			<div class="form-group row">
