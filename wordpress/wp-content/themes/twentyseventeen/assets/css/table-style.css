@@ -1,3 +1,4 @@
+/*For PSI page START*/
 #psitable {
 	position:absolute;
 	left:12%;
@@ -29,6 +30,7 @@
 	background-color: white;
 }
 
+
 #nationalpsitable td, #nationalpsitable th {
     border: 1px solid #ddd;
     padding: 2px;
@@ -43,3 +45,8 @@
     background-color: #4CAF50;
     color: white;
 }
+
+#caseFormTable td, #caseFormTable th{
+    padding: 4px;
+}
+/*For PSI page END*/
