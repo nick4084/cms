@@ -69,7 +69,7 @@
 				<label for="new-event-date" class="col-sm-2 col-form-label">Date</label>
 				<div class="col-sm-10">
 					<input class="form-control" id="newEventDate"
-						name="new-event-date" type="date">
+						name="new-event-date" type="date" value="<?php echo date('Y-m-d');?>">
 				</div>
 			</div>
 			<div class="form-group row">
@@ -96,8 +96,8 @@
 				</div>
 			</div>
     		<div class="modal-footer">
-          		<button type="button" class="btn btn-error" data-dismiss="modal">Cancel</button>
-          		<input id="submit" type="submit" class="btn btn-success">
+          		<button type="button" class="btn btn-error right" data-dismiss="modal">Cancel</button>
+          		<input id="submit" type="submit" class="btn btn-success right">
         	</div>
         </form>
         </div>

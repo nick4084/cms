@@ -1,5 +1,5 @@
 $(document).ready(function(){
-$("#editEventForm").on("submitupdate",function(e){
+$("#editEventForm").on("submit",function(e){
 	e.preventDefault();
 	if($("#editEventForm [name='edit-event-title']").val() === '')
 	{
@@ -23,13 +23,13 @@ $("#editEventForm").on("submitupdate",function(e){
 	}
 var sendData = $( this ).serializeArray();
 sendData.push({name: 'function', value: 'UpdateEvent'});
+sendData.push({name: 'id', value: $("#editEventId").val()});
 $.ajax({
 	type: "POST",
 	url: "http://localhost/cms/wordpress/wp-content/themes/twentyseventeen/event-manager.php",
 	data: sendData,
 	success: function(data){
 			
-			//$('#addEventModal').modal('hide');	
 	}
  
 });

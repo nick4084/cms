@@ -32,18 +32,19 @@ function UpdateEvent(){
     $Type=  $_POST['edit-event-type'];
     $Status=  $_POST['edit-event-status'];
     $Details=  $_POST['edit-event-details'];
-    $Id=  $_POST['edit-event-id'];
+    $Id=  $_POST['id'];
+    
+    $Date_time = strtotime( $Date );
+    $mysql_date = date("Y-m-d", $Date_time);
     
     $conn = getConnecion();
-    
-    $sql_insert_emergency_event_prepare = "UPDATE cms_event SET title = ?, date_time = ?, status =?, type =?, details =? Where event_id = ?;";
-    $statement = $conn->prepare($sql_insert_emergency_event_prepare);
-    $statement->bind_param('ssssss', $Title, $Date, $Status, $Type, $Details, $Id);
-    if ($statement->execute()) {
+
+    $statement = "UPDATE cms_event SET title='".$Title."',date_time= '". $mysql_date ."', status='". $Status."', type='". $Type."', details='".  $Details. "' Where event_id = ". $Id;
+    if (mysqli_query($conn, $statement)) {
         //success
-        return true;
+        echo json_encode($statement);
     } else {
-        return $statement->error;
+        echo json_encode($statement);
     }
     $conn->close();
 }

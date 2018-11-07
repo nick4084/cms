@@ -22,8 +22,14 @@ ul {
     background-color: white;
     border-right: 2px solid #555;
     position: absolute;
-    height: 520px;
+    height: 100%;
     overflow: auto;
+}
+#editEventDetails{
+	height:300dp;
+}
+.right{
+	float:right;
 }
 
 li a {

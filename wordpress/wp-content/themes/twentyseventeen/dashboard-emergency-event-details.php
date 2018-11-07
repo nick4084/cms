@@ -22,7 +22,7 @@
 	<?php	
 	}
 ?>
-<div class="page-content" style="width:90%; height:900px;">
+<div class="page-content" style="width: 90%; height: 900px;">
 <?php
         $current_event = new Event();
         $current_event->loadEventById($_GET['id'])?>
@@ -48,73 +48,100 @@
 		
 
     <!-- top component -->
-    <h2>Emergency event details</h2><br>
-    <div class="panel panel-default">
-    	<div class="panel-heading">
-    		<span><h3 class="panel-title">Event Information</h3></span>
-        	
-        </div>
-        <div class="panel-body">
-        <form id="editEventForm" method="post">
-			<div class="form-group row">
-				<label for="edit-event-title" class="col-sm-2 col-form-label">Title</label>
-				<div class="col-sm-10">
-					<input class="form-control" id="editEventTitle"
-						name="edit-event-title" type="text"
-						value="<?php echo $current_event->getTitle(); ?>">
-					<input id="editEventId"
-						name="edit-event-id" type="hidden"
-						value="<?php echo $_GET['id']; ?>">
-				</div>
-			</div>
+	<h2>Emergency event details</h2>
+	<br>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<span><h3 class="panel-title">Event Information</h3></span>
 
-			<div class="form-group row">
-				<label for="edit-event-date" class="col-sm-2 col-form-label">Date</label>
-				<div class="col-sm-10">
-					<input class="form-control" id="editEventDate"
-						name="edit-event-date" type="date"
-						value="<?php echo $current_event->getDate_time();?>">
+		</div>
+		<div class="panel-body">
+			<form id="editEventForm" method="post">
+				<div class="form-group row">
+					<label for="edit-event-title" class="col-sm-2 col-form-label">Title</label>
+					<div class="col-sm-10">
+						<input class="form-control" id="editEventTitle"
+							name="edit-event-title" type="text"
+							value="<?php echo $current_event->getTitle(); ?>"> 
+							<input
+							id="editEventId" name="edit-event-id" type="hidden"
+							value="<?php echo $_GET['id']; ?>">
+					</div>
 				</div>
-			</div>
 
-			<div class="form-group row">
-				<label for="edit-event-type" class="col-sm-2 col-form-label">Type</label>
-				<div class="col-sm-10">
-					<select id="editEventType"  class="form-control" name="edit-event-type"><option value="Dengue"<?php if ($current_event->getType()== 'Dengue') echo ' selected="selected"'; ?>>Dengue</option></select>
+				<div class="form-group row">
+					<label for="edit-event-date" class="col-sm-2 col-form-label">Date</label>
+					<div class="col-sm-10">
+						<input class="form-control" id="editEventDate"
+							name="edit-event-date" type="date"
+							value="<?php echo $current_event->getDate_time();?>">
+					</div>
 				</div>
-			</div>
 
-			<div class="form-group row">
-				<label for="edit-event-status" class="col-sm-2 col-form-label">Status</label>
-				<div class="col-sm-10">
-					<select id="editEventStatus" name="edit-event-status"
-						class="form-control">
-						<option value="Active"
-							<?php if ($current_event->getType()== 'Active') echo ' selected="selected"'; ?>>Active</option>
-						<option value="Closed"
-							<?php if ($current_event->getType()== 'Closed') echo ' selected="selected"'; ?>>Closed</option>
-					</select>
+				<div class="form-group row">
+					<label for="edit-event-type" class="col-sm-2 col-form-label">Type</label>
+					<div class="col-sm-10">
+						<select id="editEventType" class="form-control"
+							name="edit-event-type"><option value="Dengue"
+								<?php if ($current_event->getType()== 'Dengue') echo ' selected="selected"'; ?>>Dengue</option></select>
+					</div>
 				</div>
-			</div>
 
-			<div class="form-group row">
-				<label for="edit-event-details" class="col-sm-2 col-form-label">Details</label>
-				<div class="col-sm-10">
-					<input class="form-control" id="editEventDetails"
-						name="edit-event-details" type="text"
-						value="<?php echo $current_event->getDetails();?>">
+				<div class="form-group row">
+					<label for="edit-event-status" class="col-sm-2 col-form-label">Status</label>
+					<div class="col-sm-10">
+						<select id="editEventStatus" name="edit-event-status"
+							class="form-control">
+							<option value="Active"
+								<?php if ($current_event->getType()== 'Active') echo ' selected="selected"'; ?>>Active</option>
+							<option value="Closed"
+								<?php if ($current_event->getType()== 'Closed') echo ' selected="selected"'; ?>>Closed</option>
+						</select>
+					</div>
 				</div>
-			</div>
-			<div class="form-group row">
-				<div class="col-sm-10">
-					<button type="button" id="deleteEvent" class="btn btn-danger">Delete this Event</button><button type="submit" class="btn btn-success">Save Changes</button>
+
+				<div class="form-group row">
+					<label for="edit-event-details" class="col-sm-2 col-form-label">Details</label>
+					<div class="col-sm-10">
+						<input class="form-control" id="editEventDetails"
+							name="edit-event-details" type="text" style="height: 300dp;"
+							value="<?php echo $current_event->getDetails();?>">
+					</div>
 				</div>
-			</div>
+				<div class="form-group row">
+				<label class="col-sm-2 col-form-label"></label>
+					<div class="col-sm-10">
+					<?php echo ($_SESSION["role"]==="NEA_Manager") ? 
+						"<button type=\"button\" class = \"btn btn-danger right\" data-toggle=\"modal\" data-target=\"#deleteEventModal\">Delete Event</button>".
+						"<button type=\"submit\" class=\"btn btn-success right\">Save Changes</button>"
+						: ""; ?>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
-	
-    <!-- Updates holder -->
+
+	<div class="modal fade" id="deleteEventModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h2 class="modal-title">Delete confirmation #<?php echo $_GET['id'];?></h2>
+				</div>
+				<div class="modal-body">
+					<h4>Are you sure you want to delete this Event?</h4>
+					<button type="button" class="btn btn-error" data-dismiss="modal">Cancel</button>
+					<button type="button" id="deleteEvent" class="btn btn-danger">Delete</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+<!-- Updates holder -->
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<span><h3 class="panel-title">Event Updates</h3></span>
@@ -158,10 +185,12 @@
         		
         		?>
         		</tbody>
-        	<td><button type="button" class = "btn btn-success" data-toggle="modal" data-target="#addUpdateModal";"><span class="name">Add new update</span></button></td>
+        	<td></td>
         	
         	</tr>
-        </table></div>
+        </table>
+        <button type="button" class = "btn btn-success right" data-toggle="modal" data-target="#addUpdateModal";"><span class="name">Add new update</span></button>
+        </div>
         <div class="form-group row">
 				<div class="wrapper">
 	

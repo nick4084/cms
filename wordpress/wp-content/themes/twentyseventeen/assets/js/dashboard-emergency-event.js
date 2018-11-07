@@ -85,10 +85,15 @@ function loadtable(){
         },
 		success: function(data){
 			if(data.success == true){
+				//if table already exist, destroy
+				if ( $.fn.dataTable.isDataTable( '#eventTable' ) ) {
+				    table = $('#eventTable').DataTable();
+				    table.destroy();
+				}
+				
 				$('#eventTable').DataTable({
-					data:data.dataset,
-					rowId: '#'
-				});
+		             data: data.dataset 
+		             });
 				$('#eventTable tbody').on( 'click', 'tr', function () {
 					var id = $('#eventTable').DataTable().row(this).data()[0];
 					window.location.href = "http://localhost/cms/wordpress/dashboard-emergency-event-detail/?id="+id;
