@@ -131,13 +131,16 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h2 class="modal-title">Delete confirmation #<?php echo $_GET['id'];?></h2>
+					<h2 class="modal-title">Delete Event confirmation. (event #<?php echo $_GET['id'];?>)</h2>
 				</div>
 				<div class="modal-body">
 					<h4>Are you sure you want to delete this Event?</h4>
-					<button type="button" class="btn btn-error" data-dismiss="modal">Cancel</button>
-					<button type="button" id="deleteEvent" class="btn btn-danger">Delete</button>
+					<h4>This Action cannot be reversed.</h4>
 				</div>
+				<div class="modal-footer">
+          			<button type="button" class="btn btn-error" data-dismiss="modal">Cancel</button>
+					<button type="button" id="deleteEvent" class="btn btn-danger">Delete</button>
+        	</div>
 			</div>
 
 		</div>
