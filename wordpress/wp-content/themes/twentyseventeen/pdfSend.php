@@ -93,7 +93,7 @@ foreach($htmls as $page){
 ob_end_clean();
 $date=date("Ymdhi");
 $filepath = __DIR__.'/report'.$date.'.pdf';
-$pdf->Output($filepath, 'I');
+$pdf->Output($filepath, 'F');
 
 ?>
 
@@ -101,13 +101,13 @@ $pdf->Output($filepath, 'I');
 require "PHPMailer\PHPMailer.php";
 require "PHPMailer\SMTP.php";
 require "PHPMailer\Exception.php";
-if(false)
+if(true)
 {
 $email = "ssad.cz3006@gmail.com";
 $password = "cz3006_ssad";
 $to_id = "bryan.lyy123@gmail.com";
-$message = "testing";
-$subject = "The fkin report";
+$message = "The generateed CMS report is attached in the attachment.";
+$subject = "CMS Report";
 $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
@@ -116,7 +116,7 @@ $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 $mail->Username = $email;
 $mail->Password = $password;
-$mail->setFrom("ssad.cz3006@gmail.com",'SSAD Test');
+$mail->setFrom("ssad.cz3006@gmail.com",'CMS');
 $mail->addAttachment($filepath); 
 $mail->addAddress($to_id);
 $mail->Subject = $subject;

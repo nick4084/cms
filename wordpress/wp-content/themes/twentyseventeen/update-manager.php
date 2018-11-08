@@ -87,6 +87,7 @@ function getUpdatebyId($id){
     $query_result = mysqli_query($conn, $sql_statement);
     $array = mysqli_fetch_assoc($query_result);
 	$a=array();
+		array_push($a, (array($array["update_id"], $array["date_time"], $array["post_comment"], $array["update_user"],"")));
 	if ($query_result->num_rows > 0) {
         // output data of each row
         while($row = $query_result->fetch_assoc()) {

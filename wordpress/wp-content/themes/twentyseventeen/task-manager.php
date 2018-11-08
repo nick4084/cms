@@ -45,6 +45,7 @@ function updateTask(){
 		var_dump($Action_scope);
         return $statement->error;
     }
+	
     $conn->close();
 }
 function getTask(){
@@ -75,7 +76,7 @@ function getTaskbyId($id){
 	$a=array();
     $query_result = mysqli_query($conn, $sql_statement);
     $array = $query_result->fetch_assoc();
-
+	array_push($a, (array($array["task_id"], $array["action_scope"], $array["status"], $array["event_id"],$array["assigned_user"],"")));
         if ($query_result->num_rows > 0) {
         // output data of each row
         while($row = $query_result->fetch_assoc()) {
@@ -86,7 +87,6 @@ function getTaskbyId($id){
 	
 	
 	return array($a,$array);
-	
 
 }
 
