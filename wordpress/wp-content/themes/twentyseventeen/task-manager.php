@@ -76,6 +76,7 @@ function getTaskbyId($id){
 	$a=array();
     $query_result = mysqli_query($conn, $sql_statement);
     $array = $query_result->fetch_assoc();
+	if($array["task_id"]!=null){
 	array_push($a, (array($array["task_id"], $array["action_scope"], $array["status"], $array["event_id"],$array["assigned_user"],"")));
         if ($query_result->num_rows > 0) {
         // output data of each row
@@ -84,7 +85,7 @@ function getTaskbyId($id){
         }
     }
     $conn->close();
-	
+}
 	
 	return array($a,$array);
 

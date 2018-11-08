@@ -43,8 +43,8 @@
 
 		
 		list($a,$b) =$current_task->loadTaskById($_GET['id']);
-		//var_dump($a);
-		//var_dump($b);
+	//var_dump($a);
+	//var_dump($b);
 		//print_r(count($b));
 		
 			
@@ -183,7 +183,7 @@
         		        
         		    }
         	
-        		    echo "<td><button type='delete' style = 'background-color: #DC143C;'><div class='fas fa-trash-alt'><span class='name'></span></div></button></td>";
+        		    echo "<td><button type='delete'><div class='fas fa-trash-alt'><span class='name'></span></div></button></td>";
         		    echo "</form>";
         		}
         	
@@ -259,7 +259,7 @@
 		<div class="panel-heading clearfix"">
 			<span><h3 class="panel-title pull-left">Event Tasks</h3></span>
 			<div class="btn-group pull-right">
-<button type="button" data-toggle="modal" data-target="#addTaskModal" style = "background-color: #00ff00;"><div class="fas fa-plus"><span class="name"></span></div></button>	
+
 
 </div>		
 		</div>
@@ -304,8 +304,8 @@
 		$count++;
     }
 	$count =0;
-	echo "<td><a href='#' data-role='update' data-id='".$v1[0]."'>Update</a></td>";
-	echo "<td><a href='#' data-role='delete' data-id='".$v1[0]."'>Delete</a></td>";
+	echo "<td><button><a href='#' data-role='update' data-id='".$v1[0]."' class ='fas fa-pen'></a></button></td>";
+	echo "<td><button><a href='#' data-role='delete' data-id='".$v1[0]."' class ='fas fa-trash-alt'></a></button></td>";
 	echo "</tr>";
 }?>
 
@@ -331,6 +331,7 @@
 
         </tbody>
     </table>
+	 <button type="button" class = "btn btn-success right" data-toggle="modal" data-target="#addTaskModal";"><span class="name">Add new task</span></button>
 		</div>
 	</div>
 </div>
