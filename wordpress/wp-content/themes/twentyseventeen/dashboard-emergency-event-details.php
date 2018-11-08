@@ -426,6 +426,7 @@
 				<div class="col-sm-10">
 					<select id="newStatus" name="new-status"
 						class="form-control">
+						<option>New</option>
 						<option>In Progress</option>
 						<option>Done</option>
 					</select>
