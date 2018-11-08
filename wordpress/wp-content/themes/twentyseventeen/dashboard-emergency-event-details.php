@@ -426,6 +426,7 @@
 				<div class="col-sm-10">
 					<select id="newStatus" name="new-status"
 						class="form-control">
+						<option>New</option>
 						<option>In Progress</option>
 						<option>Done</option>
 					</select>
@@ -433,6 +434,8 @@
 			</div>
 			 <input type="hidden" id="new-task-id" name="new-task-id" value="<?php echo $_GET['id'] ?>">
 			 <input type="hidden" id="new-assigned-user" name="new-assigned-user" value="<?php echo $username ?>">
+			 <input type="hidden" id="new-event-id3" name="new-event-id" value="<?php echo $_GET['id'];?>" >	
+			 
 			
     		<div class="modal-footer">
           		<button type="button" class="btn btn-error" data-dismiss="modal">Cancel</button>
