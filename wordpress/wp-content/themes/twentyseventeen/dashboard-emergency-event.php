@@ -33,7 +33,6 @@
                 <th>Tasks</th>
                 <th>Type</th>
                 <th>Status</th>
-                <th></th>
             </tr>
     </thead>
     <tbody>
