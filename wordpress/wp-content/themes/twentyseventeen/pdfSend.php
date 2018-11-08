@@ -107,7 +107,7 @@ $email = "ssad.cz3006@gmail.com";
 $password = "cz3006_ssad";
 $to_id = "bryan.lyy123@gmail.com";
 $message = "The generated CMS report is attached in the attachment.";
-$subject = "CMS Report";
+$subject = "Daily Report";
 $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
