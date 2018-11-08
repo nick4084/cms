@@ -106,7 +106,7 @@ if(true)
 $email = "ssad.cz3006@gmail.com";
 $password = "cz3006_ssad";
 $to_id = "bryan.lyy123@gmail.com";
-$message = "The generateed CMS report is attached in the attachment.";
+$message = "The generated CMS report is attached in the attachment.";
 $subject = "CMS Report";
 $mail = new PHPMailer(true);
 $mail->isSMTP();
@@ -121,13 +121,13 @@ $mail->addAttachment($filepath);
 $mail->addAddress($to_id);
 $mail->Subject = $subject;
 $mail->msgHTML($message);
-/*if (!$mail->send()) {
+if (!$mail->send()) {
 $error = "Mailer Error: " . $mail->ErrorInfo;
 echo '<p id="para">'.$error.'</p>';
 }
 else {
 echo '<p id="para">Message sent!</p>';
-}*/
+}
 }
 else{
 echo '<p id="para">Please enter valid data</p>';
