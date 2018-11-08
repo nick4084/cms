@@ -9,7 +9,7 @@ var currentMarkerId = 0; //To get the marker who has the infowindow opened
 var listClicked = false; //To control the auto scroll in the list
 
 var listHtmlText ='<div class="card"><div class="container"><h4><b>Case Reported</b></h4></div></div>'; //Put the header of the list first
-var idOfListItem = 0;
+var idOfListItem = 1;
 
 //Run this javascript file only in dashboard-operator
 if(window.location.href == "http://localhost/cms/wordpress/dashboard-operator/")
@@ -44,19 +44,22 @@ function validateAddr()
 	var pc_div = document.getElementById("pc_div"); //Used to change the color of the textbox
 	var error_msg_pc = document.getElementById("error_msg_pc"); //Error message
 	var address = document.getElementById("tb_postalCode").value;
-	var numOfDigitInPC = Math.floor(Math.log(address) / Math.LN10 + 1); //To get the number of digit, cannot use length for number
+	var numOfDigitInPC = address.toString().length;//To get the number of digit, cannot use length for number
 	if(numOfDigitInPC == 6)
 	{
+		console.log("6 digit");
 		var geocoder = new google.maps.Geocoder();
 			geocoder.geocode( { 'address': address}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) 
 			{
+				console.log("Search ok");
 				postalCodeValid = true;
 				pc_div.className = "form-group"; //Normal Textbox
 				error_msg_pc.style.display = "none"; //Dont show error msg
 			}
 			else 
 			{
+				console.log("Search not ok");
 				postalCodeValid = false;
 				pc_div.className = "form-group has-error has-feedback"; //Textbox with red line
 				error_msg_pc.style.display = "block"; //Show error msg
@@ -65,6 +68,7 @@ function validateAddr()
 	}
 	else
 	{
+		console.log("NOT 6 digit");
 		postalCodeValid = false;
 		pc_div.className = "form-group has-error has-feedback"; //Textbox with red line
 		error_msg_pc.style.display = "block"; //Show error msg
@@ -129,6 +133,8 @@ function retrieveAllCases()
 			$('#listOfCaseContainer').delegate('a','click', listCaseClicked); //To allow each item in the list to have onclick function
 			if (map != null)
 				setMapOnAll(null); //clear all markers before adding markers again
+			markerId = 1;
+			idOfListItem = 1;
 			for (i = 0; i<data.length;i++)
 			{
 				insertCaseMarkers(data[i][0], data[i][1], data[i][2], data[i][3], data[i][4], data[i][5]);
@@ -148,6 +154,7 @@ function insertCaseMarkers(name, type_of_case, postal_code, num_of_cases, contac
     var address = postal_code;
 
 	map = new google.maps.Map(document.getElementById('googleMap'), {zoom: 11.5, center: centerOfSG}); 
+	markerList = new Array();
 	
 	//Convert the postal code into lat and lng
 	var geocoder = new google.maps.Geocoder();
@@ -238,8 +245,14 @@ function displayListOfCases(name, type_of_case, postal_code, num_of_cases, conta
 //Run this method when the user click one of the case in the list
 function listCaseClicked() {
 	listClicked = true;
-	var marker = markerList[parseInt($(this).get(0).id,10)]; //Get the id from <a>
+	var marker = markerList[parseInt($(this).get(0).id,10)-1]; //Get the id from <a>
 	map.panTo(marker.getPosition());
+	
+	console.log("Marker ID");
+	console.log(parseInt($(this).get(0).id,10)-1);
+	console.log("currentMarkerId");
+	console.log(currentMarkerId);
+	
   
 	//Close all infowindow first
 	closeAllInfoWindow();

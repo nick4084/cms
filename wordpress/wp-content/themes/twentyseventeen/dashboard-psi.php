@@ -20,7 +20,7 @@
 	<?php	
 	}
 ?>
-<div class="page-content" id="googleMap" style="width:90%; height:520px"></div>
+<div class="page-content" id="googleMap" style="width:90%; height:505px"></div>
 
 <table id="psitable">
 	<tr>

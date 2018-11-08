@@ -3,7 +3,6 @@
   outline: none;
 }
 
-
 .wrapper {
   position: absolute;
   top: 93%;
@@ -55,7 +54,7 @@
 
 #listOfCaseContainer{
 	
-	height: 520px;
+	height: 505px;
 	width: 225px;
 	margin-left:10%;
     background-color: white;

@@ -8,7 +8,6 @@
 		session_start();
 	}
 	$username = $_SESSION['MM_Username'];
-	$role = $_SESSION['role'];
     $url = $_SESSION['defaulturl'];	
 	if( !isset($username))
 	{
@@ -26,8 +25,8 @@
 	}
 ?>
 
-<div class="page-content" id="googleMap" style="width:72%; height:520px;margin-left:28%;"></div>
-<!--width 75% margin-left26%-->
+<div class="page-content" id="googleMap" style="width:72%; height:505px;margin-left:28%;"></div>
+<!--height 520px width 75% margin-left26%-->
 <div class="wrapper">
 <button id="addCaseBtn" type="button" class="circle float-button" data-toggle="modal" data-target="#addCaseModal" style = "background-color: #00ff00;display: <?php echo ($_SESSION["role"]!="Call_Operator") ? "none": "block"; ?>;"><div class="fas fa-plus"><span class="name"></span></div></button>
 

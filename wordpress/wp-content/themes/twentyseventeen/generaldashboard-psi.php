@@ -4,7 +4,7 @@
 <script language="javascript">
 	document.getElementById("logout").style.display = "none";
 </script>
-<div class="page-content" id="googleMap" style="width:90%; height:520px"></div>
+<div class="page-content" id="googleMap" style="width:90%; height:505px"></div>
 
 <table id="psitable">
 	<tr>
