@@ -6,8 +6,8 @@ if(isset($_POST['function'])){
     return;
 }
 
-if (isset($_POST['submitBtn']))
-	insertCase();
+//if (isset($_POST['submitBtn']))
+insertCase();
 
 function retrieveCase(){
 	

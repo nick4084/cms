@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="/cms/wordpress/wp-content/themes/twentyseventeen/assets/css/dashboard-template.css">
 <link rel="stylesheet" href="/cms/wordpress/wp-content/themes/twentyseventeen/assets/css/style.css">
 <link rel="stylesheet" href="/cms/wordpress/wp-content/themes/twentyseventeen/assets/css/table-style.css">
+<link rel="stylesheet" href="/cms/wordpress/wp-content/themes/twentyseventeen/assets/css/infowindow-style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/solid.css" integrity="sha384-osqezT+30O6N/vsMqwW8Ch6wKlMofqueuia2H7fePy42uC05rm1G+BUPSd2iBSJL" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/fontawesome.css" integrity="sha384-BzCy2fixOYd0HObpx3GMefNqdbA7Qjcc91RgYeDjrHTIEXqiF00jKvgQG0+zY/7I" crossorigin="anonymous">
