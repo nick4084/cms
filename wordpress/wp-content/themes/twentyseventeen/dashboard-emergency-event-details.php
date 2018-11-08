@@ -45,6 +45,8 @@
 		list($a,$b) =$current_task->loadTaskById($_GET['id']);
 		//var_dump($a);
 		//var_dump($b);
+		//print_r(count($b));
+		
 			
 		
 		?>
