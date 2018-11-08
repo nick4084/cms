@@ -1,10 +1,7 @@
 $(document).ready(function(){
 $("#NewUpdateForm").on("submit",function(e){
 	e.preventDefault();
-	if($("#NewUpdateForm [name='new-update-ID']").val() === '')
-	{
-		//$("#contact-form [name='your_name']").css("border","1px solid red");
-	}
+
 	if ($("#NewUpdateForm [name='new-update-date']").val() === '')
 	{
 		
@@ -13,23 +10,30 @@ $("#NewUpdateForm").on("submit",function(e){
 	{
 		
 	}
+	if($("#NewUpdateForm [name='new-update-id']").val() === '')
+	{
+		//$("#contact-form [name='your_name']").css("border","1px solid red");
+	}
+	if ($("#NewUpdateForm [name='new-update-user']").val() === '')
+	{
+		
+	}
+	
+
 	
 var sendData = $( this ).serializeArray();
+console.log(sendData);
 sendData.push({name: 'function', value: 'CreateUpdate'});
 $.ajax({
 	type: "POST",
 	url: "http://localhost/cms/wordpress/wp-content/themes/twentyseventeen/update-manager.php",
 	data: sendData,
 	success: function(data){
-		$("#loading-img").css("display","none");
-		$(".response_msg").text(data);
-		$(".response_msg").slideDown().fadeOut(3000);
-		//$("#NewUpdateForm [name='new-update-comments']").val(data);
+		$('#addUpdateModal').modal('hide');
 	}
  
 });
 });
- 
 $("#contact-form input").blur(function(){
 var checkValue = $(this).val();
 if(checkValue != '')

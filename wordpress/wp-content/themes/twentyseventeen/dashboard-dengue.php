@@ -15,7 +15,6 @@
 	{?>
 		<script language="javascript">
 			document.getElementById("emergency-event").style.display = "block";
-			document.getElementById("update-event").style.display = "block";
 			document.getElementById("psi").style.display = "block";
 			document.getElementById("dengue").style.display = "block";
 		</script>
