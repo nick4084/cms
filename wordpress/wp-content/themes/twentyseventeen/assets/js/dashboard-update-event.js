@@ -1,6 +1,7 @@
 $(document).ready(function(){
 $("#NewUpdateForm").on("submit",function(e){
 	e.preventDefault();
+	e.stopImmediatePropagation(); 
 
 	if ($("#NewUpdateForm [name='new-update-date']").val() === '')
 	{

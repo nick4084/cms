@@ -33,7 +33,6 @@ function CreateUpdate(){
     $statement->bind_param('sssi', $Date, $Comments, $User, $ID);
     $statement->execute();
     
-    $statement->close();
     $conn->close();
 }
 
