@@ -49,6 +49,7 @@ $("#NewTaskForm").on("submit",function(e){
 
 var sendData = $( this ).serializeArray();
 sendData.push({name: 'function', value: 'insertTask'});
+var event_id = $("#NewTaskForm [name='new-event-id']").val();
 $.ajax({
 	type: "POST",
 	url: "http://localhost/cms/wordpress/wp-content/themes/twentyseventeen/task-manager.php",
@@ -57,7 +58,6 @@ $.ajax({
 		//if(data=="Connected successfully"){
 			$('#addTaskModal').modal('hide');
 			window.location.href = "http://localhost/cms/wordpress/dashboard-emergency-event-details/?id=" + event_id;
-			alert(event_id);
 		//} else {
 			
 		//}
@@ -136,7 +136,6 @@ $('#DeleteTaskBtn').click(function Deletess(){
 	var task_id = $('#new-task-id2').val();
 	var event_id = $('#new-event-id2').val();
 	
-	alert(event_id);
 
 	sendData.push({name: 'function', value: 'deleteTask'});
     sendData.push({name: 'edit-task-id',value:task_id });
