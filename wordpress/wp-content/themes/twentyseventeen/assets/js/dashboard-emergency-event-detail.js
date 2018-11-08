@@ -56,6 +56,8 @@ $.ajax({
 	success: function(data){
 		//if(data=="Connected successfully"){
 			$('#addTaskModal').modal('hide');
+			window.location.href = "http://localhost/cms/wordpress/dashboard-emergency-event-details/?id=" + event_id;
+			alert(event_id);
 		//} else {
 			
 		//}

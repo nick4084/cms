@@ -434,6 +434,8 @@
 			</div>
 			 <input type="hidden" id="new-task-id" name="new-task-id" value="<?php echo $_GET['id'] ?>">
 			 <input type="hidden" id="new-assigned-user" name="new-assigned-user" value="<?php echo $username ?>">
+			 <input type="hidden" id="new-event-id3" name="new-event-id" value="<?php echo $_GET['id'];?>" >	
+			 
 			
     		<div class="modal-footer">
           		<button type="button" class="btn btn-error" data-dismiss="modal">Cancel</button>
